@@ -4,7 +4,7 @@ Optional DokuWiki admin companion for the Fokus template. Open Admin → Fokus S
 
 - Appearance: light/dark colors, bundled or system fonts, typography, spacing, corner radii, and internal/external link styles. Missing page links have independent light/dark colors and underline style, defaulting to red with a dotted underline.
 - Workspace: panes, pane width, dark mode availability, sidebar visibility, and regex exclusions.
-- Integrations: adapter cards for Preview, Annotations, and KaTeX with controls for the Fokus adapters, plus a read-only Dependencies subsection for Move, Tags, and Page Health. Status is green when ready, red when not installed, and amber when disabled or unavailable. Plugin installation and activation remain in Extension Manager.
+- Integrations: adapter cards for Preview, Annotations, and KaTeX with controls for the Fokus adapters, plus a read-only Dependencies subsection for Move, Tags, Page Health, NoteGraph, and ImagePop. Status is green when ready, red when not installed, and amber when disabled or unavailable. Plugin installation and activation remain in Extension Manager.
 
 Install the `fokussettings` directory under `lib/plugins/`, alongside a Fokus template containing `settings-schema.php` and `appearance.php`. DokuWiki enables newly installed plugins by default. The core Configuration Manager must be available for saving. Fokus must be the active template to change settings here.
 

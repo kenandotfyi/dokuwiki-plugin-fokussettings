@@ -172,7 +172,12 @@ class admin_plugin_fokussettings extends AdminPlugin {
         $file = DOKU_INC . 'lib/tpl/fokus/dependencies.json';
         $manifest = is_file($file) ? json_decode(file_get_contents($file), true) : [];
         $plugins = $manifest['required'] ?? [];
-        foreach (['tag'=>['Tags','Tag browser'], 'pagehealth'=>['Page Health','Health counts and link styling']] as $id => $info) $plugins[$id] = ['name'=>$info[0], 'features'=>[$info[1]], 'optional'=>true];
+        foreach ([
+            'tag'=>['Tags','Tag browser'],
+            'pagehealth'=>['Page Health','Health counts and link styling'],
+            'notegraph'=>['NoteGraph','Local graph opened from the page banner'],
+            'imagepop'=>['ImagePop','Image gallery lightbox'],
+        ] as $id => $info) $plugins[$id] = ['name'=>$info[0], 'features'=>[$info[1]], 'optional'=>true];
         echo '<div class="fokus-settings-dependencies">';
         foreach ($plugins as $id => $plugin) {
             $this->pluginCardStart($id, $plugin, empty($plugin['optional']) ? 'Required' : 'Optional');
