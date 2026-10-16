@@ -84,7 +84,7 @@ class admin_plugin_fokussettings extends AdminPlugin {
         echo '<input type="hidden" name="fokus_settings_section" value="appearance">';
         foreach (['Appearance','Workspace','Integrations'] as $group) {
             echo '<section id="fokus-settings-' . strtolower($group) . '" class="fokus-settings-section"><h2>' . $group . '</h2>';
-            if ($group === 'Appearance') echo '<p>Blank color fields use the template defaults. Missing page links have separate colors and underline styling; Page Health keeps its own no-content link appearance.</p>';
+            if ($group === 'Appearance') echo '<p>Blank color fields use the template defaults. Missing page links have separate colors and underline styling; tag links have their own appearance controls, and Page Health keeps its own no-content link appearance.</p>';
             if ($group === 'Integrations') $this->integrations($schema, $settings, $active);
             $sections = [];
             foreach ($schema as $name => $field) if ($group !== 'Integrations' && $field['group'] === $group) $sections[$field['section'] ?? $group][$name] = $field;

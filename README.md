@@ -10,7 +10,7 @@ Install the `fokussettings` directory under `lib/plugins/`, alongside a Fokus te
 
 The plugin edits template configuration through DokuWiki's Configuration API. It has no independent settings store, performs no template file writes, respects protected configuration, and requires administrator privileges and a valid security token for every save/reset. All submitted fields are validated before configuration is written. Disabled/protected inputs cannot be changed. Color values accept an empty string or six-digit hex values. Live theme previews are not included.
 
-Disabling/removing this companion leaves saved template appearance and workspace behavior active. Configuration Manager can still edit the settings. Restore defaults resets just the chosen section; existing wiki tabs need a reload after a save. Color fields left blank retain the template's light/dark defaults. Page Health's special link styles remain separate.
+Disabling/removing this companion leaves saved template appearance and workspace behavior active. Configuration Manager can still edit the settings. Restore defaults resets just the chosen section; existing wiki tabs need a reload after a save. Color fields left blank retain the template's light/dark defaults. Page Health's special link styles remain separate. Tag plugin links are identified by `rel="tag"`, excluded from Page Health classification, and have independent light/dark colors, hover colors, decoration, and font weight in Fokus Settings.
 
 License: GPL-2.0, as supplied in LICENSE.
 
