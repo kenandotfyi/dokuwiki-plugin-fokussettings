@@ -9,6 +9,7 @@ class admin_plugin_fokussettings extends AdminPlugin {
     private $notice = '';
     public function forAdminOnly() { return true; }
     public function getMenuSort() { return 140; }
+    public function getMenuIcon() { return __DIR__ . '/admin.svg'; }
     public function getMenuText($language) { return 'Fokus Settings'; }
     private function schema() {
         $file = DOKU_INC . 'lib/tpl/fokus/settings-schema.php';
