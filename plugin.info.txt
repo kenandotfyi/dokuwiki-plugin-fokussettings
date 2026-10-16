@@ -1,0 +1,7 @@
+base   fokussettings
+author Kenan Akinci
+email  hey@kenan.fyi
+date   2026-10-16
+name   Fokus Settings
+desc   Appearance, workspace, integrations, and dependency settings for the Fokus template.
+url    https://github.com/kenandotfyi/dokuwiki-plugin-fokussettings
