@@ -1,5 +1,8 @@
 .fokus-settings { max-width: 1000px; margin: 0 auto; color: var(--fokus-text, #222); }
 .fokus-settings h1 { margin-bottom: 8px; }
+.fokus-settings-unsaved { display: inline-block; margin: 0 0 12px 10px; color: #a14b00; font-size: 0.9em; font-weight: 600; }
+.fokus-settings-unsaved[hidden] { display: none; }
+html[data-theme="dark"] .fokus-settings-unsaved { color: #f0b45f; }
 .fokus-settings p { color: var(--fokus-muted, #666); }
 .fokus-settings-nav { display: flex; flex-wrap: wrap; gap: 6px; margin: 24px 0; padding: 8px 0; border-bottom: 1px solid var(--fokus-border, #ddd); }
 .fokus-settings-nav a { padding: 7px 12px; border-radius: var(--fokus-control-radius, 4px); color: inherit; background: var(--fokus-surface-soft, #eee); text-decoration: none; }

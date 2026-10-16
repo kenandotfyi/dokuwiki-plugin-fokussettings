@@ -50,7 +50,43 @@
         // Keep the selected section after a save. The form sends all settings,
         // including other sections, and server validation is authoritative.
         const form = root.querySelector('form');
-        form?.addEventListener('submit', () => { collectInterwiki(); form.querySelector('[name="fokus_settings_section"]').value = (location.hash || '#fokus-settings-appearance').replace('#fokus-settings-', ''); form.action = form.action.split('#')[0] + location.hash; });
+        if (form) {
+            let submitting = false;
+            let dirty = false;
+            const status = document.createElement('span');
+            status.className = 'fokus-settings-unsaved';
+            status.setAttribute('role', 'status');
+            status.textContent = 'Unsaved changes';
+            status.hidden = true;
+            root.querySelector('h1')?.after(status);
+
+            function snapshot() {
+                return [...form.querySelectorAll('input,select,textarea')].map(input => {
+                    if (input.type === 'checkbox' || input.type === 'radio') return `${input.type}:${input.checked ? 1 : 0}`;
+                    return `${input.type || input.tagName}:${input.value}`;
+                }).join('\u0000');
+            }
+            const initialState = snapshot();
+            function updateDirtyState() {
+                dirty = snapshot() !== initialState;
+                status.hidden = !dirty;
+            }
+            form.addEventListener('input', updateDirtyState);
+            form.addEventListener('change', updateDirtyState);
+            window.addEventListener('beforeunload', event => {
+                if (!dirty || submitting) return;
+                event.preventDefault();
+                event.returnValue = '';
+            });
+            form.addEventListener('submit', () => {
+                collectInterwiki();
+                submitting = true;
+                dirty = false;
+                status.hidden = true;
+                form.querySelector('[name="fokus_settings_section"]').value = (location.hash || '#fokus-settings-appearance').replace('#fokus-settings-', '');
+                form.action = form.action.split('#')[0] + location.hash;
+            });
+        }
         show(location.hash.slice(1));
         window.addEventListener('hashchange', () => show(location.hash.slice(1)));
         root.querySelectorAll('input,select').forEach(input => input.addEventListener('invalid', () => {
